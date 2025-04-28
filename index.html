@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PMPL Bus Service</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="phone-frame">
+    <!-- Notch -->
+    <div class="notch"></div>
+
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splash">
+      <img src="ChatGPT Image Apr 28, 2025, 05_30_21 PM.png" alt="PMPL Logo" class="logo">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Main App -->
+    <div class="main-app" id="app">
+      <header>
+        <h1>PMPL Bus Service</h1>
+      </header>
+
+      <!-- Language Selector -->
+      <div class="language-selector">
+        <label for="language">🌐 </label>
+        <label for="language">Language </label>
+
+        <select id="language">
+          <option value="en">🇺🇸 English</option>
+          <option value="hi"> Hindi</option>
+          <option value="mr"> Marathi</option>
+          <option value="bn"> Bengali</option>
+          <option value="ta"> Tamil</option>
+          <option value="te"> Telugu</option>
+          <option value="gu"> Gujarati</option>
+          <option value="kn"> Kannada</option>
+          <option value="ml"> Malayalam</option>
+          <option value="pa"> Punjabi</option>
+        </select>
+      </div>
+
+      <!-- Navbar -->
+      <nav class="navbar">
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('book')">Book Ticket</button>
+        <button onclick="showPage('ticket')">View Ticket</button>
+        <button onclick="showPage('pass')">View Pass</button>
+        <button onclick="showPage('timetable')">Route Time Table</button>
+      </nav>
+
+      <!-- Pages -->
+
+      <!-- Home Page -->
+      <main id="home-page">
+        <div class="search-bar">
+          <input type="text" placeholder="Search Route...">
+        </div>
+
+        <section class="hero">
+          <h2>Welcome to PMPL!</h2>
+          <p>Find buses, routes, and book easily.</p>
+        </section>
+
+        <!-- Live Map Section -->
+        <section class="live-map">
+          <h2>Track the Live Location of PMPL Buses</h2>
+          <p>Stay updated with real-time bus locations and plan your journey efficiently.</p>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </section>
+      </main>
+
+      <!-- Book Ticket Page -->
+      <main id="book-page">
+        <section class="book-ticket">
+          <h2>Book Your Ticket</h2>
+          <form>
+            <input type="text" placeholder="From (Station)" required>
+            <input type="text" placeholder="To (Destination)" required>
+            <button type="submit" class="primary-btn">Book Now</button>
+          </form>
+        </section>
+      </main>
+
+      <!-- View Ticket Page -->
+      <main id="ticket-page">
+        <section class="view-ticket">
+          <h2>Your Booked Tickets</h2>
+          <p>No ticket booked yet!</p>
+        </section>
+      </main>
+
+      <!-- View Pass Page -->
+      <main id="pass-page">
+        <section class="view-pass">
+          <h2>Your PMPL Pass</h2>
+          <p>No active pass found.</p>
+        </section>
+      </main>
+
+      <!-- Time Table Page -->
+      <main id="timetable-page">
+        <section class="route-timetable">
+          <h2>Route Time Table</h2>
+          <input type="text" id="routeSearch" placeholder="Search routes..." onkeyup="filterRoutes()">
+          
+          <table>
+            <thead>
+              <tr>
+                <th>Route No.</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Distance (km)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>100-D</td>
+                <td>Hinjawadi Maan Phase 3</td>
+                <td>Ma Na Pa</td>
+                <td>26.4</td>
+              </tr>
+              <!-- More routes can be added here -->
+            </tbody>
+          </table>
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2025 PMPL Bus Service</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById('splash').style.display = 'none';
+        document.getElementById('app').style.display = 'flex';
+        showPage('home');
+      }, 3000);
+    };
+
+    function showPage(pageId) {
+      document.getElementById('home-page').style.display = 'none';
+      document.getElementById('book-page').style.display = 'none';
+      document.getElementById('ticket-page').style.display = 'none';
+      document.getElementById('pass-page').style.display = 'none';
+      document.getElementById('timetable-page').style.display = 'none';
+      document.getElementById(pageId + '-page').style.display = 'block';
+    }
+  </script>
+
+  <section class="design-credit">
+    <p>Design by <a href="https://github.com/" target="_blank" class="design-link">Rohan Gadhave</a></p>
+  </section>
+
+</body>
+</html>
